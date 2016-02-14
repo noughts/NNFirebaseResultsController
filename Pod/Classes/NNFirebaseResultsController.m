@@ -34,6 +34,11 @@
 
 #pragma mark - public
 
+-(NSIndexPath*)indexPathForObject:(id)object{
+    NSUInteger index = [_fetchedObjects indexOfObject:object];
+    return [NSIndexPath indexPathForRow:index inSection:0];
+}
+
 - (FDataSnapshot *)objectAtIndex:(NSUInteger)index {
     return (FDataSnapshot *)[_fetchedObjects objectAtIndex:index];
 }
@@ -71,8 +76,8 @@
         }
         [_fetchedObjects addObject:snapshot];
         [_self sortIfNeeded];
-        NSUInteger index = [_fetchedObjects indexOfObject:snapshot];
-        [_delegate controller:_self didInsertChild:snapshot atIndex:index];
+        NSIndexPath* indexPath = [_self indexPathForObject:snapshot];
+        [_delegate controller:_self didInsertChild:snapshot atIndexPath:indexPath];
     } withCancelBlock:^(NSError *error) {
         [_delegate controller:_self didCancelWithError:error];
     }];

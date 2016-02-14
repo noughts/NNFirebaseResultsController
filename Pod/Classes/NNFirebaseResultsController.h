@@ -20,6 +20,7 @@
 - (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors;
 -(void)performFetch;
 -(NSArray*)fetchedObjects;
+-(NSIndexPath*)indexPathForObject:(id)object;
 - (FDataSnapshot *)objectAtIndex:(NSUInteger)index;
 
 @end
@@ -34,7 +35,7 @@
 @protocol NNFirebaseResultsControllerDelegate<NSObject>
 
 - (void)controllerFetchedContent:(NNFirebaseResultsController*)controller;
-- (void)controller:(NNFirebaseResultsController*)controller didInsertChild:(id)child atIndex:(NSUInteger)index;
+- (void)controller:(NNFirebaseResultsController*)controller didInsertChild:(id)child atIndexPath:(NSIndexPath*)indexPath;
 - (void)controller:(NNFirebaseResultsController*)controller didDeleteChild:(id)child atIndex:(NSUInteger)index;
 - (void)controller:(NNFirebaseResultsController*)controller didMoveChild:(id)child fromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 - (void)controller:(NNFirebaseResultsController*)controller didUpdateChild:(id)child atIndex:(NSUInteger)index;

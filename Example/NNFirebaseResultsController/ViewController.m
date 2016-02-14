@@ -27,6 +27,21 @@
 
 
 
+-(IBAction)onAddButtonTap:(id)sender{
+    Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://hole.firebaseio.com/threads"];
+    NSDictionary* object = @{
+                             @"title":@"タイトル",
+                             @"createdAt": kFirebaseServerValueTimestamp,
+                             @"updatedAt": kFirebaseServerValueTimestamp,
+                             @"order": @(arc4random()%100)
+                             };
+    [[firebase childByAutoId] setValue:object withCompletionBlock:^(NSError *error, Firebase *ref) {
+        NBULogError(error.description);
+    }];
+}
+
+
+
 #pragma mark - Table view data source
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -39,6 +54,7 @@
     id object = [_frc objectAtIndex:indexPath.row];
     NBULogInfo(@"%@", object);
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    
     return cell;
 }
 
@@ -49,6 +65,19 @@
 
 -(void)controllerFetchedContent:(NNFirebaseResultsController *)controller{
     [self.tableView reloadData];
+}
+
+-(void)controller:(NNFirebaseResultsController *)controller didInsertChild:(id)child atIndexPath:(NSIndexPath *)indexPath{
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+-(void)controller:(NNFirebaseResultsController *)controller didUpdateChild:(id)child atIndex:(NSUInteger)index{
+    
+}
+-(void)controller:(NNFirebaseResultsController *)controller didDeleteChild:(id)child atIndex:(NSUInteger)index{
+    
+}
+-(void)controller:(NNFirebaseResultsController *)controller didMoveChild:(id)child fromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex{
+    
 }
 
 
