@@ -13,8 +13,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-
-    [NNFirebaseResultsController initializeWithBaseUrl:@"https://hole.firebaseio.com/"];
     return YES;
 }
 

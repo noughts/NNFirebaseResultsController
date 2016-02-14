@@ -12,82 +12,97 @@
 
 @implementation NNFirebaseResultsController{
     NSUInteger _initialChildrenCount;
-    Firebase* _firebase;
     NSMutableArray* _fetchedObjects;
     FQuery* _query;
+    NSArray<NSSortDescriptor*>* _sortDescriptors;
+    __weak NNFirebaseResultsController* _self;
 }
 
 
 
-- (instancetype)initWithQuery:(FQuery *)query{
+- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors{
     self = [super init];
     if (self) {
+        _self = self;
         _fetchedObjects = [NSMutableArray array];
         _query = query;
-        [_query observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-            _initialChildrenCount = snapshot.childrenCount;
-            [_fetchedObjects addObjectsFromArray:snapshot.children.allObjects];
-            [self.delegate controllerFetchedContent:self];
-            [self initListeners];
-        }];
+        _sortDescriptors = sortDescriptors;
     }
     return self;
 }
+
+
+#pragma mark - public
+
+- (FDataSnapshot *)objectAtIndex:(NSUInteger)index {
+    return (FDataSnapshot *)[_fetchedObjects objectAtIndex:index];
+}
+
+
+-(NSArray*)fetchedObjects{
+    return _fetchedObjects;
+}
+
 -(void)performFetch{
-    [_firebase observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+    [_query observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        _initialChildrenCount = snapshot.childrenCount;
         [_fetchedObjects addObjectsFromArray:snapshot.children.allObjects];
+        [_self sortIfNeeded];
+        [_delegate controllerFetchedContent:_self];
+        [_self initListeners];
     }];
 }
 
 
-
+/// 必要に応じてfetchedObjectsをソート
+-(void)sortIfNeeded{
+    if( _sortDescriptors ){
+        [_fetchedObjects sortUsingDescriptors:_sortDescriptors];
+    }
+}
 
 -(void)initListeners{
     __block NSUInteger counter = 0;
     [_query observeEventType:FEventTypeChildAdded andPreviousSiblingKeyWithBlock:^(FDataSnapshot *snapshot, NSString *previousChildKey) {
+        /// 初期データ分は無視
         if( counter < _initialChildrenCount ){
             counter++;
             return;
         }
-        NSUInteger index = [self indexForKey:previousChildKey] + 1;
-        
-        [_fetchedObjects insertObject:snapshot atIndex:index];
-        
-        [self.delegate childAdded:snapshot atIndex:index];
+        [_fetchedObjects addObject:snapshot];
+        [_self sortIfNeeded];
+        NSUInteger index = [_fetchedObjects indexOfObject:snapshot];
+        [_delegate controller:_self didInsertChild:snapshot atIndex:index];
     } withCancelBlock:^(NSError *error) {
-        [self.delegate canceledWithError:error];
+        [_delegate controller:_self didCancelWithError:error];
     }];
     
     [_query observeEventType:FEventTypeChildChanged andPreviousSiblingKeyWithBlock:^(FDataSnapshot *snapshot, NSString *previousChildKey) {
-        NSUInteger index = [self indexForKey:snapshot.key];
-        
+        NSUInteger index = [_self indexForKey:snapshot.key];
         [_fetchedObjects replaceObjectAtIndex:index withObject:snapshot];
-        
-        [self.delegate childChanged:snapshot atIndex:index];
+        [_delegate controller:_self didUpdateChild:snapshot atIndex:index];
     } withCancelBlock:^(NSError *error) {
-        [self.delegate canceledWithError:error];
+        [_delegate controller:_self didCancelWithError:error];
     }];
     
     [_query observeEventType:FEventTypeChildRemoved withBlock:^(FDataSnapshot *snapshot) {
-        NSUInteger index = [self indexForKey:snapshot.key];
+        NSUInteger index = [_self indexForKey:snapshot.key];
         
         [_fetchedObjects removeObjectAtIndex:index];
         
-        [self.delegate childRemoved:snapshot atIndex:index];
+        [_delegate controller:_self didDeleteChild:snapshot atIndex:index];
     } withCancelBlock:^(NSError *error) {
-        [self.delegate canceledWithError:error];
+        [_delegate controller:_self didCancelWithError:error];
     }];
     
     [_query observeEventType:FEventTypeChildMoved andPreviousSiblingKeyWithBlock:^(FDataSnapshot *snapshot, NSString *previousChildKey) {
-        NSUInteger fromIndex = [self indexForKey:snapshot.key];
+        NSUInteger fromIndex = [_self indexForKey:snapshot.key];
         [_fetchedObjects removeObjectAtIndex:fromIndex];
-        
-        NSUInteger toIndex = [self indexForKey:previousChildKey] + 1;
+        NSUInteger toIndex = [_self indexForKey:previousChildKey] + 1;
         [_fetchedObjects insertObject:snapshot atIndex:toIndex];
-        
-        [self.delegate childMoved:snapshot fromIndex:fromIndex toIndex:toIndex];
+        [_delegate controller:_self didMoveChild:snapshot fromIndex:fromIndex toIndex:toIndex];
     } withCancelBlock:^(NSError *error) {
-        [self.delegate canceledWithError:error];
+        [_delegate controller:_self didCancelWithError:error];
     }];
 }
 
@@ -113,9 +128,7 @@
     return [_fetchedObjects count];
 }
 
-- (FDataSnapshot *)objectAtIndex:(NSUInteger)index {
-    return (FDataSnapshot *)[_fetchedObjects objectAtIndex:index];
-}
+
 
 - (Firebase *)refForIndex:(NSUInteger)index {
     return [(FDataSnapshot *)[_fetchedObjects objectAtIndex:index] ref];

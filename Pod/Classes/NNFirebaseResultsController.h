@@ -9,14 +9,18 @@
 #import <Foundation/Foundation.h>
 @protocol NNFirebaseResultsControllerDelegate;
 @class FQuery;
+@class FDataSnapshot;
 
 
 @interface NNFirebaseResultsController : NSObject
 
 @property(nonatomic,weak) id<NNFirebaseResultsControllerDelegate> delegate;
 
-- (instancetype)initWithQuery:(FQuery *)query;
+/// FirebaseのクエリはDESCのソートがないので、取得した内容を自由にソートするためにsortDescriptorを渡せます。
+- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors;
 -(void)performFetch;
+-(NSArray*)fetchedObjects;
+- (FDataSnapshot *)objectAtIndex:(NSUInteger)index;
 
 @end
 
@@ -34,6 +38,6 @@
 - (void)controller:(NNFirebaseResultsController*)controller didDeleteChild:(id)child atIndex:(NSUInteger)index;
 - (void)controller:(NNFirebaseResultsController*)controller didMoveChild:(id)child fromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 - (void)controller:(NNFirebaseResultsController*)controller didUpdateChild:(id)child atIndex:(NSUInteger)index;
-
+- (void)controller:(NNFirebaseResultsController *)controller didCancelWithError:(NSError*)error;
 
 @end
