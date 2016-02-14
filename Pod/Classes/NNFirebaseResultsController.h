@@ -30,7 +30,10 @@
 @protocol NNFirebaseResultsControllerDelegate<NSObject>
 
 - (void)controllerFetchedContent:(NNFirebaseResultsController*)controller;
-
+- (void)controller:(NNFirebaseResultsController*)controller didInsertChild:(id)child atIndex:(NSUInteger)index;
+- (void)controller:(NNFirebaseResultsController*)controller didDeleteChild:(id)child atIndex:(NSUInteger)index;
+- (void)controller:(NNFirebaseResultsController*)controller didMoveChild:(id)child fromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
+- (void)controller:(NNFirebaseResultsController*)controller didUpdateChild:(id)child atIndex:(NSUInteger)index;
 
 
 @end
