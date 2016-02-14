@@ -8,15 +8,14 @@
 
 #import <Foundation/Foundation.h>
 @protocol NNFirebaseResultsControllerDelegate;
+@class FQuery;
 
 
 @interface NNFirebaseResultsController : NSObject
 
 @property(nonatomic,weak) id<NNFirebaseResultsControllerDelegate> delegate;
 
-
-+(void)initializeWithBaseUrl:(NSString*)baseUrl;
--(instancetype)initWithPath:(NSString*)path;
+- (instancetype)initWithQuery:(FQuery *)query;
 -(void)performFetch;
 
 @end
@@ -29,6 +28,8 @@
 
 
 @protocol NNFirebaseResultsControllerDelegate<NSObject>
+
+- (void)controllerFetchedContent:(NNFirebaseResultsController*)controller;
 
 
 
