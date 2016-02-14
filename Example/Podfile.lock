@@ -25,6 +25,6 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   Firebase: 744617c0733b45198f9486ebd5cac64ec2d10d79
   NBULog: 4003be6706b97a7e376ab4171c666ac7c2fbc2b2
-  NNFirebaseResultsController: 8729178dcb57fca1eb4ad02d113eb9f51742961b
+  NNFirebaseResultsController: cfa92487133445a523242b65368d1fd41e680a47
 
 COCOAPODS: 0.39.0

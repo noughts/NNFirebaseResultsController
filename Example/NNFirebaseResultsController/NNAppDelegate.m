@@ -7,7 +7,7 @@
 //
 
 #import "NNAppDelegate.h"
-#import <NNFirebaseResultsController.h>
+#import "NNFirebaseResultsController.h"
 
 @implementation NNAppDelegate
 

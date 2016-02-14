@@ -8,6 +8,7 @@
 
 #import "NNFirebaseResultsController.h"
 #import "Firebase.h"
+#import "NBULog.h"
 
 @implementation NNFirebaseResultsController{
     
@@ -38,7 +39,7 @@ static Firebase* _rootFirebase;
 
 -(void)performFetch{
     [_firebase observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-        
+        NBULogInfo(@"%@", snapshot);
     }];
 }
 

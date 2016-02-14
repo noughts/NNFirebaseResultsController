@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import <NNFirebaseResultsController.h>
+#import "NNFirebaseResultsController.h"
 
 @implementation ViewController{
     NNFirebaseResultsController* _frc;
