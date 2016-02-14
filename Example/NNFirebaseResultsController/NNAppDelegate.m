@@ -7,12 +7,14 @@
 //
 
 #import "NNAppDelegate.h"
+#import <NNFirebaseResultsController.h>
 
 @implementation NNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+
+    [NNFirebaseResultsController initializeWithBaseUrl:@"https://hole.firebaseio.com/"];
     return YES;
 }
 

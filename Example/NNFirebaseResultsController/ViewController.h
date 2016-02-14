@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <NNFirebaseResultsController.h>
 
-@interface ViewController : UITableViewController
+@interface ViewController : UITableViewController <NNFirebaseResultsControllerDelegate>
 
 @end

@@ -7,12 +7,18 @@
 //
 
 #import "ViewController.h"
+#import <NNFirebaseResultsController.h>
 
-
-@implementation ViewController
+@implementation ViewController{
+    NNFirebaseResultsController* _frc;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _frc = [[NNFirebaseResultsController alloc] initWithPath:@"threads"];
+    _frc.delegate = self;
+    [_frc performFetch];
 }
 
 

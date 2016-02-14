@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1651CE4C48AD363444E81141 /* Pods_NNFirebaseResultsController_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDDA0DBB05FD264F6A1B9296 /* Pods_NNFirebaseResultsController_Example.framework */; };
-		19A5E0C1556BCF03B4CBB103 /* Pods_NNFirebaseResultsController_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AEAF41EA6C7FB1321081EAA /* Pods_NNFirebaseResultsController_Tests.framework */; };
+		2D54BA6BA32B253D5145EBAA /* libPods-NNFirebaseResultsController_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B4205270EC97AF8A5C18BF /* libPods-NNFirebaseResultsController_Tests.a */; };
 		4D0F375A1C705CA200B0398A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F37591C705CA200B0398A /* ViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -23,6 +22,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		AE763C0E4290A2EB1AD05EA1 /* libPods-NNFirebaseResultsController_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10DD6FE295777B05FF820BA2 /* libPods-NNFirebaseResultsController_Example.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +37,12 @@
 
 /* Begin PBXFileReference section */
 		03A67AA2A43C5C8621E00717 /* Pods-NNFirebaseResultsController_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNFirebaseResultsController_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNFirebaseResultsController_Tests/Pods-NNFirebaseResultsController_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		10DD6FE295777B05FF820BA2 /* libPods-NNFirebaseResultsController_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNFirebaseResultsController_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		148FDAE67668F747571CC340 /* Pods-NNFirebaseResultsController_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNFirebaseResultsController_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NNFirebaseResultsController_Example/Pods-NNFirebaseResultsController_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		24FB7F3756B73639ED845B75 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		4D0F37581C705CA200B0398A /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		4D0F37591C705CA200B0398A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		54B4205270EC97AF8A5C18BF /* libPods-NNFirebaseResultsController_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNFirebaseResultsController_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* NNFirebaseResultsController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNFirebaseResultsController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,11 +61,9 @@
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		75CE5D2EC89B3292D175A399 /* Pods-NNFirebaseResultsController_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNFirebaseResultsController_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NNFirebaseResultsController_Tests/Pods-NNFirebaseResultsController_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		7AEAF41EA6C7FB1321081EAA /* Pods_NNFirebaseResultsController_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NNFirebaseResultsController_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		970608C9D448BD29D93F3971 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A14E8766F77D036452780765 /* NNFirebaseResultsController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NNFirebaseResultsController.podspec; path = ../NNFirebaseResultsController.podspec; sourceTree = "<group>"; };
-		DDDA0DBB05FD264F6A1B9296 /* Pods_NNFirebaseResultsController_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NNFirebaseResultsController_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48C0801D6C033306F205B7F /* Pods-NNFirebaseResultsController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNFirebaseResultsController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNFirebaseResultsController_Example/Pods-NNFirebaseResultsController_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,7 +75,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				1651CE4C48AD363444E81141 /* Pods_NNFirebaseResultsController_Example.framework in Frameworks */,
+				AE763C0E4290A2EB1AD05EA1 /* libPods-NNFirebaseResultsController_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				19A5E0C1556BCF03B4CBB103 /* Pods_NNFirebaseResultsController_Tests.framework in Frameworks */,
+				2D54BA6BA32B253D5145EBAA /* libPods-NNFirebaseResultsController_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,8 +121,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				DDDA0DBB05FD264F6A1B9296 /* Pods_NNFirebaseResultsController_Example.framework */,
-				7AEAF41EA6C7FB1321081EAA /* Pods_NNFirebaseResultsController_Tests.framework */,
+				10DD6FE295777B05FF820BA2 /* libPods-NNFirebaseResultsController_Example.a */,
+				54B4205270EC97AF8A5C18BF /* libPods-NNFirebaseResultsController_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
