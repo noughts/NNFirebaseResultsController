@@ -47,8 +47,8 @@
 #pragma mark - Table view data source
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
-    [object.ref removeValue];
+//    [self deleteItemAtIndexPath:indexPath];
+	[self updateOrderValueAtIndexPath:indexPath];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -76,15 +76,39 @@
 -(void)controller:(NNFirebaseResultsController *)controller didInsertChild:(id)child atIndexPath:(NSIndexPath *)indexPath{
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
--(void)controller:(NNFirebaseResultsController *)controller didUpdateChild:(id)child atIndex:(NSUInteger)index{
-    
+-(void)controller:(NNFirebaseResultsController *)controller didUpdateChild:(id)child atIndexPath:(NSIndexPath *)indexPath{
+	[self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 -(void)controller:(NNFirebaseResultsController *)controller didDeleteChild:(id)child atIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
--(void)controller:(NNFirebaseResultsController *)controller didMoveChild:(id)child fromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex{
-    
+-(void)controller:(NNFirebaseResultsController *)controller didMoveChild:(id)child fromIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath{
+	[self.tableView moveRowAtIndexPath:fromIndexPath toIndexPath:toIndexPath];
 }
+
+
+#pragma mark - その他
+
+-(void)deleteItemAtIndexPath:(NSIndexPath*)indexPath{
+    FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
+    [object.ref removeValue];
+}
+
+-(void)updateOrderValueAtIndexPath:(NSIndexPath*)indexPath{
+    FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
+    [object.ref updateChildValues:@{@"order":@(arc4random()%100)} withCompletionBlock:^(NSError *error, Firebase *ref) {
+        NBULogError(@"%@", error);
+    }];
+}
+
+
+
+
+
+
+
+
+
 
 
 

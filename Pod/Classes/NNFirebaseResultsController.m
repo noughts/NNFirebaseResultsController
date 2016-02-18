@@ -93,9 +93,21 @@
 	}];
 	
 	[_query observeEventType:FEventTypeChildChanged withBlock:^(FDataSnapshot *snapshot) {
-		NSUInteger index = [_self indexForKey:snapshot.key];
-		[_fetchedObjects replaceObjectAtIndex:index withObject:snapshot];
-		[_delegate controller:_self didUpdateChild:snapshot atIndex:index];
+		NSUInteger beforeIndex = [_self indexForKey:snapshot.key];
+		[_fetchedObjects replaceObjectAtIndex:beforeIndex withObject:snapshot];
+		[_self sortIfNeeded];
+		NSUInteger afterIndex = [_self indexForKey:snapshot.key];
+		
+		NSIndexPath* beforeIndexPath = [NSIndexPath indexPathForRow:beforeIndex inSection:0];
+		if( beforeIndex == afterIndex ){
+			[_delegate controller:_self didUpdateChild:snapshot atIndexPath:beforeIndexPath];
+		} else {
+			NSIndexPath* afterIndexPath = [NSIndexPath indexPathForRow:afterIndex inSection:0];
+			[_delegate controller:_self didMoveChild:snapshot fromIndexPath:beforeIndexPath toIndexPath:afterIndexPath];
+		}
+		
+		
+		
 	}];
     
     [_query observeEventType:FEventTypeChildRemoved withBlock:^(FDataSnapshot *snapshot) {

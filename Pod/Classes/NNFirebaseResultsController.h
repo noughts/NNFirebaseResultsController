@@ -38,8 +38,8 @@
 - (void)controllerFetchedContent:(NNFirebaseResultsController*)controller;
 - (void)controller:(NNFirebaseResultsController*)controller didInsertChild:(id)child atIndexPath:(NSIndexPath*)indexPath;
 - (void)controller:(NNFirebaseResultsController*)controller didDeleteChild:(id)child atIndexPath:(NSIndexPath*)indexPath;
-- (void)controller:(NNFirebaseResultsController*)controller didMoveChild:(id)child fromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
-- (void)controller:(NNFirebaseResultsController*)controller didUpdateChild:(id)child atIndex:(NSUInteger)index;
+- (void)controller:(NNFirebaseResultsController*)controller didMoveChild:(id)child fromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
+- (void)controller:(NNFirebaseResultsController*)controller didUpdateChild:(id)child atIndexPath:(NSIndexPath*)indexPath;
 - (void)controller:(NNFirebaseResultsController *)controller didCancelWithError:(NSError*)error;
 
 @end
