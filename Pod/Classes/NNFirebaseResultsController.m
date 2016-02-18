@@ -54,15 +54,7 @@
 -(void)performFetch{
     [_query observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         _initialChildrenCount = snapshot.childrenCount;
-        
-        NSMutableArray* ary = [NSMutableArray new];
-        for (FDataSnapshot* obj in snapshot.children) {
-            id model = [_self createInstanceFromDictionary:obj.value];
-            [model setValue:obj.key forKey:@"key"];
-            [ary addObject:model];
-        }
-        
-        [_fetchedObjects addObjectsFromArray:ary];
+        [_fetchedObjects addObjectsFromArray:snapshot.children.allObjects];
         [_self sortIfNeeded];
         [_delegate controllerFetchedContent:_self];
         [_self initListeners];
