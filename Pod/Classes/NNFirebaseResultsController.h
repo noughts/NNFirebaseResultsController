@@ -17,11 +17,12 @@
 @property(nonatomic,weak) id<NNFirebaseResultsControllerDelegate> delegate;
 
 /// FirebaseのクエリはDESCのソートがないので、取得した内容を自由にソートするためにsortDescriptorを渡せます。
-- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors modelClass:(Class)modelClass;
+- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors;
 -(void)performFetch;
 -(NSArray*)fetchedObjects;
 -(NSIndexPath*)indexPathForObject:(id)object;
 - (FDataSnapshot *)objectAtIndex:(NSUInteger)index;
+- (FDataSnapshot *)objectAtIndexPath:(NSIndexPath*)indexPath;
 
 @end
 

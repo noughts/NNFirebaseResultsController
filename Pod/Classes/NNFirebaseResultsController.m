@@ -15,21 +15,19 @@
     NSMutableArray* _fetchedObjects;
     FQuery* _query;
     NSArray<NSSortDescriptor*>* _sortDescriptors;
-    Class _modelClass;
     __weak NNFirebaseResultsController* _self;
     
 }
 
 
 
-- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors modelClass:(Class)modelClass{
+- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors{
     self = [super init];
     if (self) {
         _self = self;
         _fetchedObjects = [NSMutableArray array];
         _query = query;
         _sortDescriptors = sortDescriptors;
-        _modelClass = modelClass;
     }
     return self;
 }
@@ -46,6 +44,10 @@
     return (FDataSnapshot *)[_fetchedObjects objectAtIndex:index];
 }
 
+- (FDataSnapshot *)objectAtIndexPath:(NSIndexPath*)indexPath {
+	return (FDataSnapshot *)[_fetchedObjects objectAtIndex:indexPath.row];
+}
+
 
 -(NSArray*)fetchedObjects{
     return _fetchedObjects;
@@ -59,18 +61,6 @@
         [_delegate controllerFetchedContent:_self];
         [_self initListeners];
     }];
-}
-
--(id)createInstanceFromDictionary:(NSDictionary*)dictionary{
-    id model = [[_modelClass alloc] init];
-    for (NSString* key in dictionary.allKeys) {
-		bool hasProperty = [model respondsToSelector:NSSelectorFromString(key)];
-		if( hasProperty ){
-			id value = dictionary[key];
-			[model setValue:value forKey:key];
-		}
-    }
-    return model;
 }
 
 

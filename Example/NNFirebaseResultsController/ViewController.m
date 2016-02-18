@@ -22,7 +22,7 @@
     
     Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://hole.firebaseio.com/threads"];
     NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"value.order" ascending:NO];
-    _frc = [[NNFirebaseResultsController alloc] initWithQuery:firebase sortDescriptors:@[sortDesc] modelClass:[Thread class]];
+    _frc = [[NNFirebaseResultsController alloc] initWithQuery:firebase sortDescriptors:@[sortDesc]];
     _frc.delegate = self;
     [_frc performFetch];
 }
@@ -46,6 +46,11 @@
 
 #pragma mark - Table view data source
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
+    [object.ref removeValue];
+}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return _frc.fetchedObjects.count;
 
@@ -53,7 +58,7 @@
 
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    FDataSnapshot* object = [_frc objectAtIndex:indexPath.row];
+    FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", object.value[@"order"]];
     return cell;
