@@ -1,10 +1,9 @@
-//
-//  NNFirebaseResultsController.m
-//  Pods
-//
-//  Created by noughts on 2016/02/14.
-//
-//
+/*
+ 
+ モデルクラスを指定する実装も考えましたが、安全にプロパティを設定していく処理が重くなりそうだったので、使用する側で適宜モデルに変換するのが良さそうです。
+ もしくは、objectAtIndexPath 時に変換するのも良さそう
+ 
+ */
 
 #import "NNFirebaseResultsController.h"
 #import "Firebase.h"
@@ -15,6 +14,7 @@
     NSMutableArray* _fetchedObjects;
     FQuery* _query;
     NSArray<NSSortDescriptor*>* _sortDescriptors;
+    Class _modelClass;
     __weak NNFirebaseResultsController* _self;
     
 }
@@ -61,6 +61,18 @@
         [_delegate controllerFetchedContent:_self];
         [_self initListeners];
     }];
+}
+
+-(id)createInstanceFromDictionary:(NSDictionary*)dictionary{
+    id model = [[_modelClass alloc] init];
+    for (NSString* key in dictionary.allKeys) {
+		bool hasProperty = [model respondsToSelector:NSSelectorFromString(key)];
+		if( hasProperty ){
+			id value = dictionary[key];
+			[model setValue:value forKey:key];
+		}
+    }
+    return model;
 }
 
 
