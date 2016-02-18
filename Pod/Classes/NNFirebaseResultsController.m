@@ -58,13 +58,12 @@
         NSMutableArray* ary = [NSMutableArray new];
         for (FDataSnapshot* obj in snapshot.children) {
             id model = [_self createInstanceFromDictionary:obj.value];
-//            [model setValue:obj.key forKey:@"key"];
-//            [model setValuesForKeysWithDictionary:obj.value];
+            [model setValue:obj.key forKey:@"key"];
             [ary addObject:model];
         }
         
         [_fetchedObjects addObjectsFromArray:ary];
-//        [_self sortIfNeeded];
+        [_self sortIfNeeded];
         [_delegate controllerFetchedContent:_self];
         [_self initListeners];
     }];
@@ -86,7 +85,14 @@
 /// 必要に応じてfetchedObjectsをソート
 -(void)sortIfNeeded{
     if( _sortDescriptors ){
-        [_fetchedObjects sortUsingDescriptors:_sortDescriptors];
+		@try {
+			[_fetchedObjects sortUsingDescriptors:_sortDescriptors];
+		}
+		@catch (NSException *exception) {
+			NBULogError(@"sortDescriptorで指定したキーが見つからないためソートできませんでした");
+			NBULogError(@"%@", exception);
+		}
+		
     }
 }
 
