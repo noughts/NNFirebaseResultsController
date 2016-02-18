@@ -84,6 +84,19 @@
 }
 -(void)controller:(NNFirebaseResultsController *)controller didMoveChild:(id)child fromIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath{
 	[self.tableView moveRowAtIndexPath:fromIndexPath toIndexPath:toIndexPath];
+//	[self.tableView reloadRowsAtIndexPaths:@[fromIndexPath, toIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+	
+	/*
+	[self.tableView reloadRowsAtIndexPaths:@[toIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+	NSOperationQueue* queue = [NSOperationQueue new];
+	[queue addOperationWithBlock:^{
+		sleep(1000);
+		[[NSOperationQueue mainQueue] addOperationWithBlock:^{
+			[self.tableView moveRowAtIndexPath:fromIndexPath toIndexPath:toIndexPath];
+		}];
+	}];
+	*/
+	
 }
 
 

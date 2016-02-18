@@ -94,17 +94,15 @@
 	
 	[_query observeEventType:FEventTypeChildChanged withBlock:^(FDataSnapshot *snapshot) {
 		NSUInteger beforeIndex = [_self indexForKey:snapshot.key];
+		NSIndexPath* beforeIndexPath = [NSIndexPath indexPathForRow:beforeIndex inSection:0];
 		[_fetchedObjects replaceObjectAtIndex:beforeIndex withObject:snapshot];
+		[_delegate controller:_self didUpdateChild:snapshot atIndexPath:beforeIndexPath];
 		[_self sortIfNeeded];
 		NSUInteger afterIndex = [_self indexForKey:snapshot.key];
-		
-		NSIndexPath* beforeIndexPath = [NSIndexPath indexPathForRow:beforeIndex inSection:0];
-		if( beforeIndex == afterIndex ){
-			[_delegate controller:_self didUpdateChild:snapshot atIndexPath:beforeIndexPath];
-		} else {
+		if( beforeIndex != afterIndex ){
 			NSIndexPath* afterIndexPath = [NSIndexPath indexPathForRow:afterIndex inSection:0];
 			[_delegate controller:_self didMoveChild:snapshot fromIndexPath:beforeIndexPath toIndexPath:afterIndexPath];
-		}	
+		}
 	}];
     
     [_query observeEventType:FEventTypeChildRemoved withBlock:^(FDataSnapshot *snapshot) {
