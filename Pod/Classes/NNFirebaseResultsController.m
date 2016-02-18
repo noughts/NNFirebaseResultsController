@@ -104,10 +104,7 @@
 		} else {
 			NSIndexPath* afterIndexPath = [NSIndexPath indexPathForRow:afterIndex inSection:0];
 			[_delegate controller:_self didMoveChild:snapshot fromIndexPath:beforeIndexPath toIndexPath:afterIndexPath];
-		}
-		
-		
-		
+		}	
 	}];
     
     [_query observeEventType:FEventTypeChildRemoved withBlock:^(FDataSnapshot *snapshot) {
