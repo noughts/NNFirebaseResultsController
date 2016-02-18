@@ -79,8 +79,8 @@
 -(void)controller:(NNFirebaseResultsController *)controller didUpdateChild:(id)child atIndex:(NSUInteger)index{
     
 }
--(void)controller:(NNFirebaseResultsController *)controller didDeleteChild:(id)child atIndex:(NSUInteger)index{
-    
+-(void)controller:(NNFirebaseResultsController *)controller didDeleteChild:(id)child atIndexPath:(NSIndexPath *)indexPath{
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 -(void)controller:(NNFirebaseResultsController *)controller didMoveChild:(id)child fromIndex:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex{
     

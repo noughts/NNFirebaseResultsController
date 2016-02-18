@@ -80,47 +80,41 @@
 
 -(void)initListeners{
     __block NSUInteger counter = 0;
-    [_query observeEventType:FEventTypeChildAdded andPreviousSiblingKeyWithBlock:^(FDataSnapshot *snapshot, NSString *previousChildKey) {
-        /// 初期データ分は無視
-        if( counter < _initialChildrenCount ){
-            counter++;
-            return;
-        }
-        [_fetchedObjects addObject:snapshot];
-        [_self sortIfNeeded];
-        NSIndexPath* indexPath = [_self indexPathForObject:snapshot];
-        [_delegate controller:_self didInsertChild:snapshot atIndexPath:indexPath];
-    } withCancelBlock:^(NSError *error) {
-        [_delegate controller:_self didCancelWithError:error];
-    }];
-    
-    [_query observeEventType:FEventTypeChildChanged andPreviousSiblingKeyWithBlock:^(FDataSnapshot *snapshot, NSString *previousChildKey) {
-        NSUInteger index = [_self indexForKey:snapshot.key];
-        [_fetchedObjects replaceObjectAtIndex:index withObject:snapshot];
-        [_delegate controller:_self didUpdateChild:snapshot atIndex:index];
-    } withCancelBlock:^(NSError *error) {
-        [_delegate controller:_self didCancelWithError:error];
-    }];
+	[_query observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
+		/// 初期データ分は無視
+		if( counter < _initialChildrenCount ){
+			counter++;
+			return;
+		}
+		[_fetchedObjects addObject:snapshot];
+		[_self sortIfNeeded];
+		NSIndexPath* indexPath = [_self indexPathForObject:snapshot];
+		[_delegate controller:_self didInsertChild:snapshot atIndexPath:indexPath];
+	}];
+	
+	[_query observeEventType:FEventTypeChildChanged withBlock:^(FDataSnapshot *snapshot) {
+		NSUInteger index = [_self indexForKey:snapshot.key];
+		[_fetchedObjects replaceObjectAtIndex:index withObject:snapshot];
+		[_delegate controller:_self didUpdateChild:snapshot atIndex:index];
+	}];
     
     [_query observeEventType:FEventTypeChildRemoved withBlock:^(FDataSnapshot *snapshot) {
         NSUInteger index = [_self indexForKey:snapshot.key];
-        
         [_fetchedObjects removeObjectAtIndex:index];
-        
-        [_delegate controller:_self didDeleteChild:snapshot atIndex:index];
-    } withCancelBlock:^(NSError *error) {
-        [_delegate controller:_self didCancelWithError:error];
+		NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        [_delegate controller:_self didDeleteChild:snapshot atIndexPath:indexPath];
     }];
-    
-    [_query observeEventType:FEventTypeChildMoved andPreviousSiblingKeyWithBlock:^(FDataSnapshot *snapshot, NSString *previousChildKey) {
-        NSUInteger fromIndex = [_self indexForKey:snapshot.key];
-        [_fetchedObjects removeObjectAtIndex:fromIndex];
-        NSUInteger toIndex = [_self indexForKey:previousChildKey] + 1;
-        [_fetchedObjects insertObject:snapshot atIndex:toIndex];
-        [_delegate controller:_self didMoveChild:snapshot fromIndex:fromIndex toIndex:toIndex];
-    } withCancelBlock:^(NSError *error) {
-        [_delegate controller:_self didCancelWithError:error];
-    }];
+	
+	[_query observeEventType:FEventTypeChildMoved withBlock:^(FDataSnapshot *snapshot) {
+		
+		/*
+		NSUInteger fromIndex = [_self indexForKey:snapshot.key];
+		[_fetchedObjects removeObjectAtIndex:fromIndex];
+		NSUInteger toIndex = [_self indexForKey:previousChildKey] + 1;
+		[_fetchedObjects insertObject:snapshot atIndex:toIndex];
+		[_delegate controller:_self didMoveChild:snapshot fromIndex:fromIndex toIndex:toIndex];
+		 */
+	}];
 }
 
 
