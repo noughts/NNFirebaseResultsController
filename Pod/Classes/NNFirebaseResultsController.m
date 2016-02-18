@@ -57,15 +57,10 @@
         
         NSMutableArray* ary = [NSMutableArray new];
         for (FDataSnapshot* obj in snapshot.children) {
-            id model = [[_modelClass alloc] init];
-            [model setValue:obj.key forKey:@"key"];
-            @try {
-                [model setValuesForKeysWithDictionary:obj.value];
-            } @catch (NSException *exception) {
-                NBULogError(@"%@", exception);
-            }
-            
-            [ary addObject:model];
+            [_self createInstanceFromDictionary:obj.value];
+//            [model setValue:obj.key forKey:@"key"];
+//            [model setValuesForKeysWithDictionary:obj.value];
+//            [ary addObject:model];
         }
         
         [_fetchedObjects addObjectsFromArray:ary];
@@ -73,6 +68,16 @@
         [_delegate controllerFetchedContent:_self];
         [_self initListeners];
     }];
+}
+
+-(id)createInstanceFromDictionary:(NSDictionary*)dictionary{
+    id model = [[_modelClass alloc] init];
+    bool hoge = [model respondsToSelector:NSSelectorFromString(@"title")];
+    NBULogInfo(@"%@", @(hoge));
+    for (id key in dictionary.allKeys) {
+        NBULogInfo(@"%@", key);
+    }
+    return nil;
 }
 
 
