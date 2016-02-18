@@ -2,6 +2,7 @@
  
  モデルクラスを指定する実装も考えましたが、安全にプロパティを設定していく処理が重くなりそうだったので、使用する側で適宜モデルに変換するのが良さそうです。
  もしくは、objectAtIndexPath 時に変換するのも良さそう
+ カスタムモデルはFDataSnapshotを継承するようにしましょう。
  
  */
 
@@ -40,10 +41,11 @@
     return [NSIndexPath indexPathForRow:index inSection:0];
 }
 
+
+//TODO:カスタムモデル対応
 - (FDataSnapshot *)objectAtIndex:(NSUInteger)index {
     return (FDataSnapshot *)[_fetchedObjects objectAtIndex:index];
 }
-
 - (FDataSnapshot *)objectAtIndexPath:(NSIndexPath*)indexPath {
 	return (FDataSnapshot *)[_fetchedObjects objectAtIndex:indexPath.row];
 }
@@ -63,7 +65,8 @@
     }];
 }
 
--(id)createInstanceFromDictionary:(NSDictionary*)dictionary{
+-(id)createInstanceFromSnapshot:(FDataSnapshot*)snapshot{
+	NSDictionary* dictionary = snapshot.value;
     id model = [[_modelClass alloc] init];
     for (NSString* key in dictionary.allKeys) {
 		bool hasProperty = [model respondsToSelector:NSSelectorFromString(key)];
