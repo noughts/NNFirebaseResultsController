@@ -15,18 +15,21 @@
     NSMutableArray* _fetchedObjects;
     FQuery* _query;
     NSArray<NSSortDescriptor*>* _sortDescriptors;
+    Class _modelClass;
     __weak NNFirebaseResultsController* _self;
+    
 }
 
 
 
-- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors{
+- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors modelClass:(Class)modelClass{
     self = [super init];
     if (self) {
         _self = self;
         _fetchedObjects = [NSMutableArray array];
         _query = query;
         _sortDescriptors = sortDescriptors;
+        _modelClass = modelClass;
     }
     return self;
 }
@@ -51,7 +54,21 @@
 -(void)performFetch{
     [_query observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         _initialChildrenCount = snapshot.childrenCount;
-        [_fetchedObjects addObjectsFromArray:snapshot.children.allObjects];
+        
+        NSMutableArray* ary = [NSMutableArray new];
+        for (FDataSnapshot* obj in snapshot.children) {
+            id model = [[_modelClass alloc] init];
+            [model setValue:obj.key forKey:@"key"];
+            @try {
+                [model setValuesForKeysWithDictionary:obj.value];
+            } @catch (NSException *exception) {
+                NBULogError(@"%@", exception);
+            }
+            
+            [ary addObject:model];
+        }
+        
+        [_fetchedObjects addObjectsFromArray:ary];
         [_self sortIfNeeded];
         [_delegate controllerFetchedContent:_self];
         [_self initListeners];

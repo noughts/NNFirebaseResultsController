@@ -10,6 +10,7 @@
 #import "NNFirebaseResultsController.h"
 #import <Firebase.h>
 #import <NBULog.h>
+#import "Thread.h"
 
 @implementation ViewController{
     NNFirebaseResultsController* _frc;
@@ -20,7 +21,8 @@
     
     
     Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://hole.firebaseio.com/threads"];
-    _frc = [[NNFirebaseResultsController alloc] initWithQuery:firebase sortDescriptors:nil];
+    NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"order" ascending:NO];
+    _frc = [[NNFirebaseResultsController alloc] initWithQuery:firebase sortDescriptors:@[sortDesc] modelClass:[Thread class]];
     _frc.delegate = self;
     [_frc performFetch];
 }
