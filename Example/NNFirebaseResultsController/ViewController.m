@@ -69,6 +69,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+	cell.textLabel.text = object.value[@"title"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", object.value[@"order"]];
     return cell;
 }
