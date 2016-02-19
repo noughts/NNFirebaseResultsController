@@ -46,6 +46,15 @@
 
 #pragma mark - Table view data source
 
+/// スワイプして操作
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+	FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
+	[object.ref removeValueWithCompletionBlock:^(NSError *error, Firebase *ref) {
+		NBULogError(@"%@", error);
+	}];
+}
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 //    [self deleteItemAtIndexPath:indexPath];
 	[self updateOrderValueAtIndexPath:indexPath];
