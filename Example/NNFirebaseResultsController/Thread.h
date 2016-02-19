@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Thread : NSObject <NSCoding>
+@interface Thread : NSObject
 
 @property NSString* key;
 @property NSString* title;
