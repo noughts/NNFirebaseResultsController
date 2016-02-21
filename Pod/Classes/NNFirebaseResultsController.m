@@ -8,10 +8,11 @@
 #import "NNFirebaseResultsController.h"
 #import "Firebase.h"
 #import "NBULog.h"
+#import "NNFirebaseModel.h"
 
 @implementation NNFirebaseResultsController{
     NSUInteger _initialChildrenCount;
-    NSMutableArray* _fetchedObjects;
+    NSMutableArray<FDataSnapshot*>* _fetchedObjects;
     FQuery* _query;
     NSArray<NSSortDescriptor*>* _sortDescriptors;
     Class _modelClass;
@@ -21,13 +22,17 @@
 
 
 
-- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors{
+- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors modelClass:(Class)modelClass{
     self = [super init];
     if (self) {
         _self = self;
         _fetchedObjects = [NSMutableArray array];
         _query = query;
         _sortDescriptors = sortDescriptors;
+		_modelClass = modelClass;
+        if( [_modelClass isSubclassOfClass:[NNFirebaseModel class]] == false ){
+            @throw @"modelClassはNNFirebaseModelのサブクラスである必要があります";
+        }
     }
     return self;
 }
@@ -42,15 +47,16 @@
 
 
 //TODO:カスタムモデル対応
-- (FDataSnapshot *)objectAtIndex:(NSUInteger)index {
-    return (FDataSnapshot *)[_fetchedObjects objectAtIndex:index];
+- (__kindof NNFirebaseModel*)objectAtIndex:(NSUInteger)index {
+    FDataSnapshot* snapshot = _fetchedObjects[index];
+    return [self createInstanceFromSnapshot:snapshot];
 }
-- (FDataSnapshot *)objectAtIndexPath:(NSIndexPath*)indexPath {
-	return (FDataSnapshot *)[_fetchedObjects objectAtIndex:indexPath.row];
+- (__kindof NNFirebaseModel*)objectAtIndexPath:(NSIndexPath*)indexPath {
+	return [self objectAtIndex:indexPath.row];
 }
 
 
--(NSArray*)fetchedObjects{
+-(NSArray<FDataSnapshot*>*)fetchedObjects{
     return _fetchedObjects;
 }
 
@@ -64,9 +70,11 @@
     }];
 }
 
--(id)createInstanceFromSnapshot:(FDataSnapshot*)snapshot{
+
+-(__kindof NNFirebaseModel*)createInstanceFromSnapshot:(FDataSnapshot*)snapshot{
 	NSDictionary* dictionary = snapshot.value;
-    id model = [[_modelClass alloc] init];
+    __kindof NNFirebaseModel* model = [[_modelClass alloc] init];
+    model.key = snapshot.key;
     for (NSString* key in dictionary.allKeys) {
 		bool hasProperty = [model respondsToSelector:NSSelectorFromString(key)];
 		if( hasProperty ){
