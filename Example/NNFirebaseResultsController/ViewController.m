@@ -48,12 +48,10 @@
 
 /// スワイプして操作
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-	/*
-	Thread* object = [_frc objectAtIndexPath:indexPath];
-	[object.ref removeValueWithCompletionBlock:^(NSError *error, Firebase *ref) {
+	Thread* thread = [_frc objectAtIndexPath:indexPath];
+	[thread.ref removeValueWithCompletionBlock:^(NSError *error, Firebase *ref) {
 		NBULogError(@"%@", error);
 	}];
-	 */
 }
 
 
