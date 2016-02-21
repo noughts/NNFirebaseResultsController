@@ -46,7 +46,6 @@
 }
 
 
-//TODO:カスタムモデル対応
 - (__kindof NNFirebaseModel*)objectAtIndex:(NSUInteger)index {
     FDataSnapshot* snapshot = _fetchedObjects[index];
     __kindof NNFirebaseModel* model = [[_modelClass alloc] initWithSnapshot:snapshot];
