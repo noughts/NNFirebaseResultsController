@@ -75,6 +75,7 @@
 	NSDictionary* dictionary = snapshot.value;
     __kindof NNFirebaseModel* model = [[_modelClass alloc] init];
     model.key = snapshot.key;
+    model.ref = snapshot.ref;
     for (NSString* key in dictionary.allKeys) {
 		bool hasProperty = [model respondsToSelector:NSSelectorFromString(key)];
 		if( hasProperty ){

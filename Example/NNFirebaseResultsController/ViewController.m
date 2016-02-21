@@ -22,7 +22,7 @@
     
     Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://hole.firebaseio.com/threads"];
     NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"value.order" ascending:NO];// FDataSnapshotはvalueの下に実際のプロパティがあるので、それを指定する
-    _frc = [[NNFirebaseResultsController alloc] initWithQuery:firebase sortDescriptors:@[sortDesc]];
+    _frc = [[NNFirebaseResultsController alloc] initWithQuery:firebase sortDescriptors:@[sortDesc] modelClass:[Thread class]];
     _frc.delegate = self;
     [_frc performFetch];
 }
@@ -48,10 +48,12 @@
 
 /// スワイプして操作
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-	FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
+	/*
+	Thread* object = [_frc objectAtIndexPath:indexPath];
 	[object.ref removeValueWithCompletionBlock:^(NSError *error, Firebase *ref) {
 		NBULogError(@"%@", error);
 	}];
+	 */
 }
 
 
@@ -67,10 +69,10 @@
 
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
+    Thread* object = [_frc objectAtIndexPath:indexPath];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-	cell.textLabel.text = object.value[@"title"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", object.value[@"order"]];
+	cell.textLabel.text = object.title;
+//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", object.value[@"order"]];
     return cell;
 }
 
@@ -99,11 +101,6 @@
 
 
 #pragma mark - その他
-
--(void)deleteItemAtIndexPath:(NSIndexPath*)indexPath{
-    FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
-    [object.ref removeValue];
-}
 
 -(void)updateOrderValueAtIndexPath:(NSIndexPath*)indexPath{
     FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];

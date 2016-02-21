@@ -7,9 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Firebase;
 
 @interface NNFirebaseModel : NSObject
 
 @property NSString* key;
+@property Firebase* ref;
 
 @end

@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <NNFirebaseModel.h>
 
-@interface Thread : NSObject
+@interface Thread : NNFirebaseModel;
 
-@property NSString* key;
 @property NSString* title;
 
 @end
