@@ -58,7 +58,6 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    [self deleteItemAtIndexPath:indexPath];
 	[self updateOrderValueAtIndexPath:indexPath];
 }
 
@@ -69,10 +68,10 @@
 
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Thread* object = [_frc objectAtIndexPath:indexPath];
+    Thread* thread = [_frc objectAtIndexPath:indexPath];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-	cell.textLabel.text = object.title;
-//    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", object.value[@"order"]];
+	cell.textLabel.text = thread.title;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", @(thread.order)];
     return cell;
 }
 
@@ -103,8 +102,8 @@
 #pragma mark - その他
 
 -(void)updateOrderValueAtIndexPath:(NSIndexPath*)indexPath{
-    Thread* object = [_frc objectAtIndexPath:indexPath];
-    [object.ref updateChildValues:@{@"order":@(arc4random()%100)} withCompletionBlock:^(NSError *error, Firebase *ref) {
+    Thread* thread = [_frc objectAtIndexPath:indexPath];
+    [thread.ref updateChildValues:@{@"order":@(arc4random()%100)} withCompletionBlock:^(NSError *error, Firebase *ref) {
         NBULogError(@"%@", error);
     }];
 }

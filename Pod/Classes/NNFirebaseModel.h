@@ -10,6 +10,7 @@
 #import <Firebase.h>
 
 @interface NNFirebaseModel : NSObject{
+    #pragma mark - protected
     FDataSnapshot* _snapshot;
 }
 

@@ -12,5 +12,6 @@
 @interface Thread : NNFirebaseModel;
 
 -(NSString*)title;
+-(NSInteger)order;
 
 @end

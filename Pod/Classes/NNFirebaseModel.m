@@ -9,6 +9,7 @@
 #import "NNFirebaseModel.h"
 #import "Firebase.h"
 
+
 @implementation NNFirebaseModel{
 }
 
