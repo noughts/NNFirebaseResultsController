@@ -11,6 +11,6 @@
 
 @interface Thread : NNFirebaseModel;
 
-@property NSString* title;
+-(NSString*)title;
 
 @end

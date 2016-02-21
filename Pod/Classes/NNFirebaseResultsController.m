@@ -31,7 +31,7 @@
         _sortDescriptors = sortDescriptors;
 		_modelClass = modelClass;
         if( [_modelClass isSubclassOfClass:[NNFirebaseModel class]] == false ){
-            @throw @"modelClassはNNFirebaseModelのサブクラスである必要があります";
+            NBULogError(@"modelClassはNNFirebaseModelのサブクラスである必要があります");
         }
     }
     return self;
@@ -49,7 +49,8 @@
 //TODO:カスタムモデル対応
 - (__kindof NNFirebaseModel*)objectAtIndex:(NSUInteger)index {
     FDataSnapshot* snapshot = _fetchedObjects[index];
-    return [self createInstanceFromSnapshot:snapshot];
+    __kindof NNFirebaseModel* model = [[_modelClass alloc] initWithSnapshot:snapshot];
+    return model;
 }
 - (__kindof NNFirebaseModel*)objectAtIndexPath:(NSIndexPath*)indexPath {
 	return [self objectAtIndex:indexPath.row];
@@ -68,22 +69,6 @@
         [_delegate controllerFetchedContent:_self];
         [_self initListeners];
     }];
-}
-
-
--(__kindof NNFirebaseModel*)createInstanceFromSnapshot:(FDataSnapshot*)snapshot{
-	NSDictionary* dictionary = snapshot.value;
-    __kindof NNFirebaseModel* model = [[_modelClass alloc] init];
-    model.key = snapshot.key;
-    model.ref = snapshot.ref;
-    for (NSString* key in dictionary.allKeys) {
-		bool hasProperty = [model respondsToSelector:NSSelectorFromString(key)];
-		if( hasProperty ){
-			id value = dictionary[key];
-			[model setValue:value forKey:key];
-		}
-    }
-    return model;
 }
 
 

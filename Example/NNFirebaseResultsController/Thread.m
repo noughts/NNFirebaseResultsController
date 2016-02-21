@@ -8,8 +8,11 @@
 
 #import "Thread.h"
 
+
 @implementation Thread
 
-
+-(NSString*)title{
+    return _snapshot.value[@"title"];
+}
 
 @end

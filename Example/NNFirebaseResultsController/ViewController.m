@@ -103,7 +103,7 @@
 #pragma mark - その他
 
 -(void)updateOrderValueAtIndexPath:(NSIndexPath*)indexPath{
-    FDataSnapshot* object = [_frc objectAtIndexPath:indexPath];
+    Thread* object = [_frc objectAtIndexPath:indexPath];
     [object.ref updateChildValues:@{@"order":@(arc4random()%100)} withCompletionBlock:^(NSError *error, Firebase *ref) {
         NBULogError(@"%@", error);
     }];

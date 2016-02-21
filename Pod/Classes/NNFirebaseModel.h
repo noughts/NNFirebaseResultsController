@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-@class Firebase;
+#import <Firebase.h>
 
-@interface NNFirebaseModel : NSObject
+@interface NNFirebaseModel : NSObject{
+    FDataSnapshot* _snapshot;
+}
 
-@property NSString* key;
-@property Firebase* ref;
+-(instancetype)initWithSnapshot:(FDataSnapshot*)snapshot;
+-(Firebase*)ref;
+-(NSString*)key;
 
 @end
