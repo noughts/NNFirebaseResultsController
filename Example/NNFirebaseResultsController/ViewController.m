@@ -87,7 +87,8 @@
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 -(void)controller:(NNFirebaseResultsController *)controller didUpdateChild:(id)child atIndexPath:(NSIndexPath *)indexPath{
-	[self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+	// データを保存した直後にinsertが呼ばれ、サーバーに保存が完了するとupdateがよばれるので、セルが点滅アニメしないようにNoneにする
+	[self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 -(void)controller:(NNFirebaseResultsController *)controller didDeleteChild:(id)child atIndexPath:(NSIndexPath *)indexPath{
     [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
