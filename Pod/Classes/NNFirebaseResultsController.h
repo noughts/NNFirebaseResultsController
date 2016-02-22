@@ -41,6 +41,6 @@
 - (void)controller:(NNFirebaseResultsController*)controller didDeleteChild:(id)child atIndexPath:(NSIndexPath*)indexPath;
 - (void)controller:(NNFirebaseResultsController*)controller didMoveChild:(id)child fromIndexPath:(NSIndexPath*)fromIndexPath toIndexPath:(NSIndexPath*)toIndexPath;
 - (void)controller:(NNFirebaseResultsController*)controller didUpdateChild:(id)child atIndexPath:(NSIndexPath*)indexPath;
-- (void)controller:(NNFirebaseResultsController *)controller didCancelWithError:(NSError*)error;
+//- (void)controller:(NNFirebaseResultsController *)controller didCancelWithError:(NSError*)error;
 
 @end
