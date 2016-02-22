@@ -1,10 +1,3 @@
-/*
- 
- モデルクラスを指定する実装も考えましたが、安全にプロパティを設定していく処理が重くなりそうだったので、使用する側で適宜モデルに変換するのが良さそうです。
- もしくは、objectAtIndexPath 時に変換するのも良さそう
- 
- */
-
 #import "NNFirebaseResultsController.h"
 #import "Firebase.h"
 #import "NBULog.h"
