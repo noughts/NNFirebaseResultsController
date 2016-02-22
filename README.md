@@ -7,7 +7,13 @@
 
 ## Usage
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+```obj-c
+Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://example.firebaseio.com/posts"];
+NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"value.createdAt" ascending:NO];
+_frc = [[NNFirebaseResultsController alloc] initWithQuery:firebase sortDescriptors:@[sortDesc] modelClass:[Post class]];
+_frc.delegate = self;
+[_frc performFetch];
+```
 
 ## Requirements
 
