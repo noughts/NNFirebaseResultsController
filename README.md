@@ -15,8 +15,6 @@ _frc.delegate = self;
 [_frc performFetch];
 ```
 
-## Requirements
-
 ## Installation
 
 NNFirebaseResultsController is available through [CocoaPods](http://cocoapods.org). To install
