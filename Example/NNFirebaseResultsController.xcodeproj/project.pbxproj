@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		326359DCB31832A48E380C4E /* libPods-NNFirebaseResultsController_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6D73FF58900DCEA2478EA12 /* libPods-NNFirebaseResultsController_Example.a */; };
 		4D0F375A1C705CA200B0398A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F37591C705CA200B0398A /* ViewController.m */; };
 		4D0F37611C70CC8C00B0398A /* Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0F37601C70CC8C00B0398A /* Thread.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -22,8 +23,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		8976FFC27E22D7014F48D045 /* libPods-NNFirebaseResultsController_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE4F0074800B37ECB004B0F3 /* libPods-NNFirebaseResultsController_Tests.a */; };
-		AF175215D7A55A9EB943503D /* libPods-NNFirebaseResultsController_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7E6DED1133AAF02417F9C45 /* libPods-NNFirebaseResultsController_Example.a */; };
+		CE727623F070479E38684EB8 /* libPods-NNFirebaseResultsController_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 580C90D2908BDA0378C263E7 /* libPods-NNFirebaseResultsController_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +44,7 @@
 		4D0F37591C705CA200B0398A /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; usesTabs = 1; wrapsLines = 0; };
 		4D0F375F1C70CC8C00B0398A /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
 		4D0F37601C70CC8C00B0398A /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thread.m; sourceTree = "<group>"; usesTabs = 1; };
+		580C90D2908BDA0378C263E7 /* libPods-NNFirebaseResultsController_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNFirebaseResultsController_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* NNFirebaseResultsController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNFirebaseResultsController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -65,8 +66,7 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		970608C9D448BD29D93F3971 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A14E8766F77D036452780765 /* NNFirebaseResultsController.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NNFirebaseResultsController.podspec; path = ../NNFirebaseResultsController.podspec; sourceTree = "<group>"; };
-		D7E6DED1133AAF02417F9C45 /* libPods-NNFirebaseResultsController_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNFirebaseResultsController_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DE4F0074800B37ECB004B0F3 /* libPods-NNFirebaseResultsController_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNFirebaseResultsController_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6D73FF58900DCEA2478EA12 /* libPods-NNFirebaseResultsController_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNFirebaseResultsController_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F48C0801D6C033306F205B7F /* Pods-NNFirebaseResultsController_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNFirebaseResultsController_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNFirebaseResultsController_Example/Pods-NNFirebaseResultsController_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +78,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				AF175215D7A55A9EB943503D /* libPods-NNFirebaseResultsController_Example.a in Frameworks */,
+				326359DCB31832A48E380C4E /* libPods-NNFirebaseResultsController_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,7 +89,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				8976FFC27E22D7014F48D045 /* libPods-NNFirebaseResultsController_Tests.a in Frameworks */,
+				CE727623F070479E38684EB8 /* libPods-NNFirebaseResultsController_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,8 +124,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				D7E6DED1133AAF02417F9C45 /* libPods-NNFirebaseResultsController_Example.a */,
-				DE4F0074800B37ECB004B0F3 /* libPods-NNFirebaseResultsController_Tests.a */,
+				C6D73FF58900DCEA2478EA12 /* libPods-NNFirebaseResultsController_Example.a */,
+				580C90D2908BDA0378C263E7 /* libPods-NNFirebaseResultsController_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

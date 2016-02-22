@@ -10,11 +10,13 @@ PODS:
   - Firebase (2.5.1)
   - NBULog (1.2.4):
     - CocoaLumberjack (>= 2.0.0)
-  - NNFirebaseResultsController (0.1.0):
+  - NBULogStub (0.1.2)
+  - NNFirebaseResultsController (0.1.1):
     - Firebase
-    - NBULog
+    - NBULogStub
 
 DEPENDENCIES:
+  - NBULog
   - NNFirebaseResultsController (from `../`)
 
 EXTERNAL SOURCES:
@@ -25,6 +27,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   Firebase: 3565ea88b830f28f2c77ecc524622bc71a20d085
   NBULog: 4003be6706b97a7e376ab4171c666ac7c2fbc2b2
-  NNFirebaseResultsController: cfa92487133445a523242b65368d1fd41e680a47
+  NBULogStub: 398fa3535e3b368d6f1cb3b32c2ac0cb81cf350c
+  NNFirebaseResultsController: af645001d6406105dfafdf8140bceff5355866a5
 
 COCOAPODS: 0.39.0
