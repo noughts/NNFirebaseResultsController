@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     
-    Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://hole.firebaseio.com/threads"];
+    Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://sandboxxx.firebaseio.com/threads"];
     NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"value.order" ascending:NO];// FDataSnapshotはvalueの下に実際のプロパティがあるので、それを指定する
     _frc = [[NNFirebaseResultsController alloc] initWithQuery:firebase sortDescriptors:@[sortDesc] modelClass:[Thread class]];
     _frc.delegate = self;
@@ -30,7 +30,7 @@
 
 
 -(IBAction)onAddButtonTap:(id)sender{
-    Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://hole.firebaseio.com/threads"];
+    Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://sandboxxx.firebaseio.com/threads"];
     NSDictionary* object = @{
                              @"title":@"タイトル",
                              @"createdAt": kFirebaseServerValueTimestamp,
