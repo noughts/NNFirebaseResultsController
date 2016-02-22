@@ -1,6 +1,6 @@
 #import "NNFirebaseResultsController.h"
 #import "Firebase.h"
-#import "NBULog.h"
+#import "NBULogStub.h"
 #import "NNFirebaseModel.h"
 
 @implementation NNFirebaseResultsController{
