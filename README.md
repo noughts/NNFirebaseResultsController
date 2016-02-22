@@ -17,6 +17,7 @@ NNFirebaseResultsController is available through [CocoaPods](http://cocoapods.or
 it, simply add the following line to your Podfile:
 
 ```ruby
+source 'https://github.com/noughts/Specs.git'
 pod "NNFirebaseResultsController"
 ```
 
