@@ -20,12 +20,12 @@ Pod::Spec.new do |s|
   hoge
                        DESC
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/NNFirebaseResultsController"
+  s.homepage         = "https://github.com/noughts/NNFirebaseResultsController"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Koichi Yamamoto" => "noughts@gmail.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/NNFirebaseResultsController.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => "https://github.com/noughts/NNFirebaseResultsController.git", :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/noughts'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
