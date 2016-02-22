@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Firebase.h>
+#import "Firebase.h"
 
 @interface NNFirebaseModel : NSObject{
     #pragma mark - protected
