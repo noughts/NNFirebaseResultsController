@@ -1,28 +1,20 @@
-//
-//  ViewController.m
-//  NNFirebaseResultsController
-//
-//  Created by noughts on 2016/02/14.
-//  Copyright © 2016年 Koichi Yamamoto. All rights reserved.
-//
-
+@import Firebase;
 #import "ViewController.h"
 #import "NNFirebaseResultsController.h"
-#import <Firebase.h>
 #import <NBULog.h>
 #import "Thread.h"
 
 @implementation ViewController{
     NNFirebaseResultsController* _frc;
+	FIRDatabaseReference* _threads_ref;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
-    Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://sandboxxx.firebaseio.com/threads"];
+	_threads_ref = [[FIRDatabase database] referenceWithPath:@"threads"];
     NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"value.order" ascending:NO];// FDataSnapshotはvalueの下に実際のプロパティがあるので、それを指定する
-    _frc = [[NNFirebaseResultsController alloc] initWithQuery:firebase sortDescriptors:@[sortDesc] modelClass:[Thread class]];
+	_frc = [[NNFirebaseResultsController alloc] initWithQuery:[_threads_ref queryOrderedByKey] sortDescriptors:@[sortDesc]];
     _frc.delegate = self;
     [_frc performFetch];
 }
@@ -30,16 +22,19 @@
 
 
 -(IBAction)onAddButtonTap:(id)sender{
-    Firebase* firebase = [[Firebase alloc] initWithUrl:@"https://sandboxxx.firebaseio.com/threads"];
     NSDictionary* object = @{
                              @"title":@"タイトル",
-                             @"createdAt": kFirebaseServerValueTimestamp,
-                             @"updatedAt": kFirebaseServerValueTimestamp,
+                             @"createdAt": [FIRServerValue timestamp],
+                             @"updatedAt": [FIRServerValue timestamp],
                              @"order": @(arc4random()%100)
                              };
-    [[firebase childByAutoId] setValue:object withCompletionBlock:^(NSError *error, Firebase *ref) {
-        NBULogError(error.description);
-    }];
+	[[_threads_ref childByAutoId] setValue:object withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+		if( error ){
+			NBULogError(@"%@", error);
+			return;
+		}
+		NBULogInfo(@"保存完了!");
+	}];
 }
 
 
@@ -48,9 +43,13 @@
 
 /// スワイプして操作
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
-	Thread* thread = [_frc objectAtIndexPath:indexPath];
-	[thread.ref removeValueWithCompletionBlock:^(NSError *error, Firebase *ref) {
-		NBULogError(@"%@", error);
+	FIRDataSnapshot* snapshot = [_frc objectAtIndexPath:indexPath];
+	[snapshot.ref removeValueWithCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+		if( error ){
+			NBULogError(@"%@", error);
+			return;
+		}
+		NBULogInfo(@"削除完了!");
 	}];
 }
 
@@ -66,10 +65,10 @@
 
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    Thread* thread = [_frc objectAtIndexPath:indexPath];
+    FIRDataSnapshot* snapshot = [_frc objectAtIndexPath:indexPath];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-	cell.textLabel.text = thread.title;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", @(thread.order)];
+	cell.textLabel.text = snapshot.value[@"title"];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", snapshot.value[@"order"]];
     return cell;
 }
 
@@ -100,10 +99,14 @@
 #pragma mark - その他
 
 -(void)updateOrderValueAtIndexPath:(NSIndexPath*)indexPath{
-    Thread* thread = [_frc objectAtIndexPath:indexPath];
-    [thread.ref updateChildValues:@{@"order":@(arc4random()%100)} withCompletionBlock:^(NSError *error, Firebase *ref) {
-        NBULogError(@"%@", error);
-    }];
+    FIRDataSnapshot* snapshot = [_frc objectAtIndexPath:indexPath];
+	[snapshot.ref updateChildValues:@{@"order":@(arc4random()%100)} withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
+		if( error ){
+			NBULogError(@"%@", error);
+			return;
+		}
+		NBULogInfo(@"更新完了!");
+	}];
 }
 
 

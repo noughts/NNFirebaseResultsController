@@ -8,12 +8,12 @@
 
 #import "NNAppDelegate.h"
 #import "NNFirebaseResultsController.h"
-#import <Firebase.h>
+@import Firebase;
 
 @implementation NNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
-    [Firebase defaultConfig].persistenceEnabled = YES;
+	[FIRApp configure];
     return YES;
 }
 

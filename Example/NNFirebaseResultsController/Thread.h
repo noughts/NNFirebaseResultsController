@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <NNFirebaseModel.h>
 
-@interface Thread : NNFirebaseModel;
+@interface Thread : NSObject;
 
--(NSString*)title;
--(NSInteger)order;
+//-(NSString*)title;
+//-(NSInteger)order;
 
 @end

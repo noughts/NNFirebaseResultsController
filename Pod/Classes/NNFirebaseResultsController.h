@@ -1,16 +1,6 @@
-//
-//  NNFirebaseResultsController.h
-//  Pods
-//
-//  Created by noughts on 2016/02/14.
-//
-//
-
 #import <Foundation/Foundation.h>
+#import <Firebase.h>
 @protocol NNFirebaseResultsControllerDelegate;
-@class FQuery;
-@class FDataSnapshot;
-@class NNFirebaseModel;
 
 
 @interface NNFirebaseResultsController : NSObject
@@ -18,12 +8,12 @@
 @property(nonatomic,weak) id<NNFirebaseResultsControllerDelegate> delegate;
 
 /// FirebaseのクエリはDESCのソートがないので、取得した内容を自由にソートするためにsortDescriptorを渡せます。
-- (instancetype)initWithQuery:(FQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors modelClass:(Class)modelClass;
+- (instancetype)initWithQuery:(FIRDatabaseQuery *)query sortDescriptors:(NSArray<NSSortDescriptor*>*)sortDescriptors;
 -(void)performFetch;
--(NSArray<FDataSnapshot*>*)fetchedObjects;
+-(NSArray<FIRDataSnapshot*>*)fetchedObjects;
 -(NSIndexPath*)indexPathForObject:(id)object;
-- (__kindof NNFirebaseModel*)objectAtIndex:(NSUInteger)index;
-- (__kindof NNFirebaseModel*)objectAtIndexPath:(NSIndexPath*)indexPath;
+- (FIRDataSnapshot*)objectAtIndex:(NSUInteger)index;
+- (FIRDataSnapshot*)objectAtIndexPath:(NSIndexPath*)indexPath;
 
 @end
 
