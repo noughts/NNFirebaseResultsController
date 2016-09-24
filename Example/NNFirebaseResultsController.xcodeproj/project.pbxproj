@@ -44,6 +44,7 @@
 		4D0F375F1C70CC8C00B0398A /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
 		4D0F37601C70CC8C00B0398A /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thread.m; sourceTree = "<group>"; usesTabs = 1; };
 		4DF1D6221D973E63009523B5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4DF1D6241D974108009523B5 /* NNFirebaseResultsController_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NNFirebaseResultsController_Example.entitlements; sourceTree = "<group>"; };
 		580C90D2908BDA0378C263E7 /* libPods-NNFirebaseResultsController_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNFirebaseResultsController_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* NNFirebaseResultsController_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNFirebaseResultsController_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -97,6 +98,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				4DF1D6241D974108009523B5 /* NNFirebaseResultsController_Example.entitlements */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for NNFirebaseResultsController */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -246,6 +248,14 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Koichi Yamamoto";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = EAVZ9K262B;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -469,6 +479,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = NNFirebaseResultsController_Example.entitlements;
+				DEVELOPMENT_TEAM = EAVZ9K262B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NNFirebaseResultsController/NNFirebaseResultsController-Prefix.pch";
 				INFOPLIST_FILE = "NNFirebaseResultsController/NNFirebaseResultsController-Info.plist";
@@ -485,6 +497,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = NNFirebaseResultsController_Example.entitlements;
+				DEVELOPMENT_TEAM = EAVZ9K262B;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NNFirebaseResultsController/NNFirebaseResultsController-Prefix.pch";
 				INFOPLIST_FILE = "NNFirebaseResultsController/NNFirebaseResultsController-Info.plist";
