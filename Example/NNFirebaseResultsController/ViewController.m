@@ -3,6 +3,7 @@
 #import "NNFirebaseResultsController.h"
 #import <NBULog.h>
 #import "Thread.h"
+#import <MBProgressHUD.h>
 
 @implementation ViewController{
     NNFirebaseResultsController* _frc;
@@ -17,6 +18,7 @@
 	_frc = [[NNFirebaseResultsController alloc] initWithQuery:[_threads_ref queryOrderedByKey] sortDescriptors:@[sortDesc]];
     _frc.delegate = self;
     [_frc performFetch];
+	[MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 
@@ -79,6 +81,7 @@
 
 -(void)controllerFetchedContent:(NNFirebaseResultsController *)controller{
     [self.tableView reloadData];
+	[MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 -(void)controller:(NNFirebaseResultsController *)controller didInsertChild:(id)child atIndexPath:(NSIndexPath *)indexPath{
