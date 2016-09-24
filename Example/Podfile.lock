@@ -13,11 +13,16 @@ PODS:
     - FirebaseAnalytics (~> 3.3)
   - Firebase/Core (3.5.2):
     - Firebase/Analytics
+  - Firebase/Database (3.5.2):
+    - Firebase/Analytics
+    - FirebaseDatabase (= 3.0.2)
   - FirebaseAnalytics (3.3.1):
     - FirebaseInstanceID (~> 1.0)
     - GoogleInterchangeUtilities (~> 1.2)
     - GoogleSymbolUtilities (~> 1.1)
     - GoogleUtilities (~> 1.2)
+  - FirebaseDatabase (3.0.2):
+    - FirebaseAnalytics (~> 3.2)
   - FirebaseInstanceID (1.0.8)
   - GoogleInterchangeUtilities (1.2.1):
     - GoogleSymbolUtilities (~> 1.0)
@@ -29,6 +34,7 @@ PODS:
   - NBULogStub (0.1.2)
   - NNFirebaseResultsController (0.1.2):
     - Firebase
+    - Firebase/Database
     - NBULogStub
 
 DEPENDENCIES:
@@ -43,13 +49,14 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   Firebase: 94e63112efcad75226c0356a8f3032397b8547c9
   FirebaseAnalytics: d968d4d5f6aeb795cd64144337bcd233e530efc6
+  FirebaseDatabase: 59bea2e7dfd81b3b8b2f8e396caf1a52c2ced6f7
   FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
   GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   NBULog: 3450f827248abd4ca70dfc10b7e7deb355bf3b2f
   NBULogStub: 398fa3535e3b368d6f1cb3b32c2ac0cb81cf350c
-  NNFirebaseResultsController: d1551ab152fe6870ba0f342ad5741df118995232
+  NNFirebaseResultsController: 0fa286d9d4c4dfc2f52e9b5e74bbfa71cac1cf16
 
 PODFILE CHECKSUM: fe8e618aa4b6f04670e03b19f1d04815d8a2ac1c
 
