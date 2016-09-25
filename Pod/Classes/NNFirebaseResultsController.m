@@ -1,4 +1,3 @@
-#import <Firebase.h>
 #import "NNFirebaseResultsController.h"
 #import "NBULogStub.h"
 
