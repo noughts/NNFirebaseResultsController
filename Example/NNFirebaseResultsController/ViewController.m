@@ -14,22 +14,22 @@
     [super viewDidLoad];
     
 	_threads_ref = [[FIRDatabase database] referenceWithPath:@"threads"];
+	FIRDatabaseQuery* query = [[_threads_ref queryOrderedByChild:@"order"] queryLimitedToFirst:3];
     NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"value.order" ascending:NO];// FDataSnapshotはvalueの下に実際のプロパティがあるので、それを指定する
-	_frc = [[NNFirebaseResultsController alloc] initWithQuery:[_threads_ref queryOrderedByKey] sortDescriptors:@[sortDesc]];
+	_frc = [[NNFirebaseResultsController alloc] initWithQuery:query sortDescriptors:@[sortDesc]];
     _frc.delegate = self;
     [_frc performFetch];
 	[MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 
-
--(IBAction)onAddButtonTap:(id)sender{
-    NSDictionary* object = @{
-                             @"title":@"タイトル",
-                             @"createdAt": [FIRServerValue timestamp],
-                             @"updatedAt": [FIRServerValue timestamp],
-                             @"order": @(arc4random()%100)
-                             };
+-(void)createThreadWithOrderId:(NSUInteger)order{
+	NSDictionary* object = @{
+							 @"title":@"タイトル",
+							 @"createdAt": [FIRServerValue timestamp],
+							 @"updatedAt": [FIRServerValue timestamp],
+							 @"order": @(order)
+							 };
 	[[_threads_ref childByAutoId] setValue:object withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
 		if( error ){
 			NBULogError(@"%@", error);
@@ -37,6 +37,12 @@
 		}
 		NBULogInfo(@"保存完了!");
 	}];
+}
+
+
+-(IBAction)onAddButtonTap:(id)sender{
+	NSUInteger order = arc4random() % 100;
+	[self createThreadWithOrderId:order];
 }
 
 
