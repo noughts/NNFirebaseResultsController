@@ -85,10 +85,6 @@
 		[_delegate controller:_self didInsertChild:snapshot atIndexPath:indexPath];
 	}];
 	
-//	[_query observeEventType:FIRDataEventTypeChildChanged andPreviousSiblingKeyWithBlock:^(FIRDataSnapshot * _Nonnull snapshot, NSString * _Nullable prevKey) {
-//		NBULogInfo(@"prevKey>>>>>>>%@", prevKey);
-//	}];
-	
 	[_query observeEventType:FIRDataEventTypeChildChanged withBlock:^(FIRDataSnapshot *snapshot) {
 		NSUInteger beforeIndex = [_self indexForKey:snapshot.key];
 		NSIndexPath* beforeIndexPath = [NSIndexPath indexPathForRow:beforeIndex inSection:0];

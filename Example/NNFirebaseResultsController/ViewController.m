@@ -15,7 +15,7 @@
     
 	_threads_ref = [[FIRDatabase database] referenceWithPath:@"threads"];
 	FIRDatabaseQuery* query = [[_threads_ref queryOrderedByChild:@"order"] queryLimitedToLast:3];
-    NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"value.order" ascending:NO];// FDataSnapshotはvalueの下に実際のプロパティがあるので、それを指定する
+    NSSortDescriptor* sortDesc = [NSSortDescriptor sortDescriptorWithKey:@"value.order" ascending:NO];// FDataSnapshotはvalueの下に実際のプロパティがあるので、それを指定する。
 	_frc = [[NNFirebaseResultsController alloc] initWithQuery:query sortDescriptors:@[sortDesc]];
     _frc.delegate = self;
     [_frc performFetch];
