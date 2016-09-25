@@ -6,7 +6,7 @@ target 'NNFirebaseResultsController' do
   # use_frameworks!
 
   # Pods for NNFirebaseResultsController
-
+  pod "Firebase"
 end
 
 target 'NNFirebaseResultsControllerDemo' do
@@ -14,5 +14,5 @@ target 'NNFirebaseResultsControllerDemo' do
   # use_frameworks!
 
   # Pods for NNFirebaseResultsControllerDemo
-
+  pod "Firebase"
 end

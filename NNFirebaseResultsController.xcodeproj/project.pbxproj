@@ -7,18 +7,48 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4DFA59C61D97C29A00DFB913 /* NNFirebaseResultsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DFA59C41D97C29A00DFB913 /* NNFirebaseResultsController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3E92A41CE10E830980137C11 /* libPods-NNFirebaseResultsControllerDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4903541461CB0DD28E7F56B3 /* libPods-NNFirebaseResultsControllerDemo.a */; };
 		4DFA59D41D97C2E200DFB913 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA59D31D97C2E200DFB913 /* main.m */; };
 		4DFA59D71D97C2E200DFB913 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA59D61D97C2E200DFB913 /* AppDelegate.m */; };
 		4DFA59DA1D97C2E200DFB913 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA59D91D97C2E200DFB913 /* ViewController.m */; };
 		4DFA59DD1D97C2E200DFB913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFA59DB1D97C2E200DFB913 /* Main.storyboard */; };
 		4DFA59DF1D97C2E200DFB913 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DFA59DE1D97C2E200DFB913 /* Assets.xcassets */; };
 		4DFA59E21D97C2E200DFB913 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DFA59E01D97C2E200DFB913 /* LaunchScreen.storyboard */; };
+		4DFA59E91D97C8FB00DFB913 /* NNFirebaseResultsController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DFA59E71D97C8FB00DFB913 /* NNFirebaseResultsController.h */; };
+		4DFA59EA1D97C8FB00DFB913 /* NNFirebaseResultsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA59E81D97C8FB00DFB913 /* NNFirebaseResultsController.m */; };
+		4DFA59EB1D97CA8A00DFB913 /* NNFirebaseResultsController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFA59C11D97C29A00DFB913 /* NNFirebaseResultsController.framework */; };
+		4DFA59EC1D97CA8A00DFB913 /* NNFirebaseResultsController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4DFA59C11D97C29A00DFB913 /* NNFirebaseResultsController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CDA7B49BD42998B94F71B728 /* libPods-NNFirebaseResultsController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7287492FA954B58367D26CA4 /* libPods-NNFirebaseResultsController.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4DFA59ED1D97CA8A00DFB913 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4DFA59B81D97C29A00DFB913 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4DFA59C01D97C29A00DFB913;
+			remoteInfo = NNFirebaseResultsController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4DFA59EF1D97CA8A00DFB913 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4DFA59EC1D97CA8A00DFB913 /* NNFirebaseResultsController.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		41262146742FF05A4154A1F5 /* Pods-NNFirebaseResultsController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNFirebaseResultsController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NNFirebaseResultsController/Pods-NNFirebaseResultsController.debug.xcconfig"; sourceTree = "<group>"; };
+		4903541461CB0DD28E7F56B3 /* libPods-NNFirebaseResultsControllerDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNFirebaseResultsControllerDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DFA59C11D97C29A00DFB913 /* NNFirebaseResultsController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NNFirebaseResultsController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DFA59C41D97C29A00DFB913 /* NNFirebaseResultsController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NNFirebaseResultsController.h; sourceTree = "<group>"; };
 		4DFA59C51D97C29A00DFB913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4DFA59D01D97C2E200DFB913 /* NNFirebaseResultsControllerDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NNFirebaseResultsControllerDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DFA59D31D97C2E200DFB913 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -30,6 +60,12 @@
 		4DFA59DE1D97C2E200DFB913 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DFA59E11D97C2E200DFB913 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4DFA59E31D97C2E200DFB913 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DFA59E71D97C8FB00DFB913 /* NNFirebaseResultsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NNFirebaseResultsController.h; sourceTree = "<group>"; };
+		4DFA59E81D97C8FB00DFB913 /* NNFirebaseResultsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NNFirebaseResultsController.m; sourceTree = "<group>"; };
+		7287492FA954B58367D26CA4 /* libPods-NNFirebaseResultsController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NNFirebaseResultsController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C695DB5043D9E6444BCB353 /* Pods-NNFirebaseResultsController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNFirebaseResultsController.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNFirebaseResultsController/Pods-NNFirebaseResultsController.release.xcconfig"; sourceTree = "<group>"; };
+		CF48614BCCB6B15F7F50468D /* Pods-NNFirebaseResultsControllerDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNFirebaseResultsControllerDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NNFirebaseResultsControllerDemo/Pods-NNFirebaseResultsControllerDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		FE30F9F21E8E06FFB58048F5 /* Pods-NNFirebaseResultsControllerDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NNFirebaseResultsControllerDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NNFirebaseResultsControllerDemo/Pods-NNFirebaseResultsControllerDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDA7B49BD42998B94F71B728 /* libPods-NNFirebaseResultsController.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +81,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DFA59EB1D97CA8A00DFB913 /* NNFirebaseResultsController.framework in Frameworks */,
+				3E92A41CE10E830980137C11 /* libPods-NNFirebaseResultsControllerDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +95,8 @@
 				4DFA59C31D97C29A00DFB913 /* NNFirebaseResultsController */,
 				4DFA59D11D97C2E200DFB913 /* NNFirebaseResultsControllerDemo */,
 				4DFA59C21D97C29A00DFB913 /* Products */,
+				89127B5A314145D70F0DFE41 /* Pods */,
+				5605A1D6C9108453EB59742F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +112,9 @@
 		4DFA59C31D97C29A00DFB913 /* NNFirebaseResultsController */ = {
 			isa = PBXGroup;
 			children = (
-				4DFA59C41D97C29A00DFB913 /* NNFirebaseResultsController.h */,
 				4DFA59C51D97C29A00DFB913 /* Info.plist */,
+				4DFA59E71D97C8FB00DFB913 /* NNFirebaseResultsController.h */,
+				4DFA59E81D97C8FB00DFB913 /* NNFirebaseResultsController.m */,
 			);
 			path = NNFirebaseResultsController;
 			sourceTree = "<group>";
@@ -101,6 +143,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5605A1D6C9108453EB59742F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7287492FA954B58367D26CA4 /* libPods-NNFirebaseResultsController.a */,
+				4903541461CB0DD28E7F56B3 /* libPods-NNFirebaseResultsControllerDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		89127B5A314145D70F0DFE41 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41262146742FF05A4154A1F5 /* Pods-NNFirebaseResultsController.debug.xcconfig */,
+				7C695DB5043D9E6444BCB353 /* Pods-NNFirebaseResultsController.release.xcconfig */,
+				CF48614BCCB6B15F7F50468D /* Pods-NNFirebaseResultsControllerDemo.debug.xcconfig */,
+				FE30F9F21E8E06FFB58048F5 /* Pods-NNFirebaseResultsControllerDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -108,7 +170,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DFA59C61D97C29A00DFB913 /* NNFirebaseResultsController.h in Headers */,
+				4DFA59E91D97C8FB00DFB913 /* NNFirebaseResultsController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,10 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DFA59C91D97C29A00DFB913 /* Build configuration list for PBXNativeTarget "NNFirebaseResultsController" */;
 			buildPhases = (
+				4ACD72F013AD3D8B11907519 /* [CP] Check Pods Manifest.lock */,
 				4DFA59BC1D97C29A00DFB913 /* Sources */,
 				4DFA59BD1D97C29A00DFB913 /* Frameworks */,
 				4DFA59BE1D97C29A00DFB913 /* Headers */,
 				4DFA59BF1D97C29A00DFB913 /* Resources */,
+				57F496A085A4AA76CCB509D9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -137,13 +201,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4DFA59E41D97C2E200DFB913 /* Build configuration list for PBXNativeTarget "NNFirebaseResultsControllerDemo" */;
 			buildPhases = (
+				D67C4ADABA8DE1DA0D188BAF /* [CP] Check Pods Manifest.lock */,
 				4DFA59CC1D97C2E200DFB913 /* Sources */,
 				4DFA59CD1D97C2E200DFB913 /* Frameworks */,
 				4DFA59CE1D97C2E200DFB913 /* Resources */,
+				20CF3056822B551299CED9EE /* [CP] Embed Pods Frameworks */,
+				E4518CFD79E73DD1E5F22D91 /* [CP] Copy Pods Resources */,
+				4DFA59EF1D97CA8A00DFB913 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4DFA59EE1D97CA8A00DFB913 /* PBXTargetDependency */,
 			);
 			name = NNFirebaseResultsControllerDemo;
 			productName = NNFirebaseResultsControllerDemo;
@@ -210,11 +279,90 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		20CF3056822B551299CED9EE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NNFirebaseResultsControllerDemo/Pods-NNFirebaseResultsControllerDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4ACD72F013AD3D8B11907519 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		57F496A085A4AA76CCB509D9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NNFirebaseResultsController/Pods-NNFirebaseResultsController-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D67C4ADABA8DE1DA0D188BAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E4518CFD79E73DD1E5F22D91 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NNFirebaseResultsControllerDemo/Pods-NNFirebaseResultsControllerDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4DFA59BC1D97C29A00DFB913 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DFA59EA1D97C8FB00DFB913 /* NNFirebaseResultsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +377,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4DFA59EE1D97CA8A00DFB913 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4DFA59C01D97C29A00DFB913 /* NNFirebaseResultsController */;
+			targetProxy = 4DFA59ED1D97CA8A00DFB913 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4DFA59DB1D97C2E200DFB913 /* Main.storyboard */ = {
@@ -348,6 +504,7 @@
 		};
 		4DFA59CA1D97C29A00DFB913 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41262146742FF05A4154A1F5 /* Pods-NNFirebaseResultsController.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -366,6 +523,7 @@
 		};
 		4DFA59CB1D97C29A00DFB913 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C695DB5043D9E6444BCB353 /* Pods-NNFirebaseResultsController.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
@@ -384,6 +542,7 @@
 		};
 		4DFA59E51D97C2E200DFB913 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF48614BCCB6B15F7F50468D /* Pods-NNFirebaseResultsControllerDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EAVZ9K262B;
@@ -396,6 +555,7 @@
 		};
 		4DFA59E61D97C2E200DFB913 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE30F9F21E8E06FFB58048F5 /* Pods-NNFirebaseResultsControllerDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = EAVZ9K262B;
@@ -425,6 +585,7 @@
 				4DFA59CB1D97C29A00DFB913 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DFA59E41D97C2E200DFB913 /* Build configuration list for PBXNativeTarget "NNFirebaseResultsControllerDemo" */ = {
 			isa = XCConfigurationList;
@@ -433,6 +594,7 @@
 				4DFA59E61D97C2E200DFB913 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
