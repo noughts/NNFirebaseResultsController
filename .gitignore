@@ -1,3 +1,5 @@
+*.bcsymbolmap
+
 # Xcode用 .gitignore
 
 Pods/

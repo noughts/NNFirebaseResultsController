@@ -1,0 +1,6 @@
+framework module NNFirebaseResultsController {
+  umbrella header "NNFirebaseResultsController.h"
+
+  export *
+  module * { export * }
+}
