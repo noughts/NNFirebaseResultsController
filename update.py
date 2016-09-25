@@ -33,4 +33,4 @@ def getVersion():
 version = getVersion();
 runCommand( "git tag "+ version );
 runCommand( "git push --tags" );
-runCommand( "pod repo push noughts --verbose --allow-warnings" );
+runCommand( "pod repo push noughts --verbose --allow-warnings --use-libraries --no-private" );
