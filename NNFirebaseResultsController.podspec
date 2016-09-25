@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "NNFirebaseResultsController"
-  s.version          = "0.2.17"
+  s.version          = "0.2.18"
   s.summary          = "NSFetchedResultsController-Like interface for Firebase"
 
 # This description is used to generate tags and improve search results.
@@ -34,7 +34,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency "Firebase"
-  s.dependency "Firebase/Analytics"
   s.dependency "Firebase/Database"
 end
