@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "Firebase.h"
+@class FIRDatabaseQuery;
+@class FIRDataSnapshot;
 @protocol NNFirebaseResultsControllerDelegate;
 
 
