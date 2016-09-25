@@ -7,12 +7,8 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
-  - Firebase (3.5.2):
-    - Firebase/Core (= 3.5.2)
   - Firebase/Analytics (3.5.2):
     - FirebaseAnalytics (~> 3.3)
-  - Firebase/Core (3.5.2):
-    - Firebase/Analytics
   - Firebase/Database (3.5.2):
     - Firebase/Analytics
     - FirebaseDatabase (= 3.0.2)
@@ -33,8 +29,7 @@ PODS:
   - NBULog (1.3.0):
     - CocoaLumberjack (>= 2.3.0)
   - NBULogStub (0.1.2)
-  - NNFirebaseResultsController (0.2.0):
-    - Firebase
+  - NNFirebaseResultsController (0.2.1):
     - Firebase/Database
     - NBULogStub
 
@@ -59,7 +54,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   NBULog: 3450f827248abd4ca70dfc10b7e7deb355bf3b2f
   NBULogStub: 398fa3535e3b368d6f1cb3b32c2ac0cb81cf350c
-  NNFirebaseResultsController: c20f6bea7a5b1b3e0b224801538fb8a7a92ea763
+  NNFirebaseResultsController: c3ef6de2e978175d256aebc5f7f8fcc824878c4a
 
 PODFILE CHECKSUM: a419132dbea66f4722193e7d72ad4ebef506ef90
 
