@@ -1,5 +1,4 @@
 #import "NNFirebaseResultsController.h"
-#import "NBULogStub.h"
 #import "Firebase.h"
 
 @implementation NNFirebaseResultsController{
@@ -63,8 +62,8 @@
 			[_fetchedObjects sortUsingDescriptors:_sortDescriptors];
 		}
 		@catch (NSException *exception) {
-			NBULogError(@"sortDescriptorで指定したキーが見つからないためソートできませんでした");
-			NBULogError(@"%@", exception);
+			NSLog(@"sortDescriptorで指定したキーが見つからないためソートできませんでした");
+			NSLog(@"%@", exception);
 		}
 		
 	}

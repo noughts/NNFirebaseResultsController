@@ -1,7 +1,6 @@
 @import Firebase;
 #import "ViewController.h"
 #import "NNFirebaseResultsController.h"
-#import <NBULog.h>
 #import "Thread.h"
 #import <MBProgressHUD.h>
 
@@ -36,10 +35,10 @@
 							 };
 	[[_threads_ref childByAutoId] setValue:object withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
 		if( error ){
-			NBULogError(@"%@", error);
+			NSLog(@"%@", error);
 			return;
 		}
-		NBULogInfo(@"保存完了!");
+		NSLog(@"保存完了!");
 	}];
 }
 
@@ -58,10 +57,10 @@
 	FIRDataSnapshot* snapshot = [_frc objectAtIndexPath:indexPath];
 	[snapshot.ref removeValueWithCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
 		if( error ){
-			NBULogError(@"%@", error);
+			NSLog(@"%@", error);
 			return;
 		}
-		NBULogInfo(@"削除完了!");
+		NSLog(@"削除完了!");
 	}];
 }
 
@@ -115,10 +114,10 @@
     FIRDataSnapshot* snapshot = [_frc objectAtIndexPath:indexPath];
 	[snapshot.ref updateChildValues:@{@"order":@(arc4random()%100)} withCompletionBlock:^(NSError * _Nullable error, FIRDatabaseReference * _Nonnull ref) {
 		if( error ){
-			NBULogError(@"%@", error);
+			NSLog(@"%@", error);
 			return;
 		}
-		NBULogInfo(@"更新完了!");
+		NSLog(@"更新完了!");
 	}];
 }
 
