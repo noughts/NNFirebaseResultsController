@@ -36,7 +36,6 @@ PODS:
   - NNFirebaseResultsController (0.2.0):
     - Firebase
     - Firebase/Database
-    - FirebaseAnalytics
     - NBULogStub
 
 DEPENDENCIES:
@@ -60,7 +59,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   NBULog: 3450f827248abd4ca70dfc10b7e7deb355bf3b2f
   NBULogStub: 398fa3535e3b368d6f1cb3b32c2ac0cb81cf350c
-  NNFirebaseResultsController: 305db090449ab201feb4ed1bec45200ce3cafb2b
+  NNFirebaseResultsController: c20f6bea7a5b1b3e0b224801538fb8a7a92ea763
 
 PODFILE CHECKSUM: a419132dbea66f4722193e7d72ad4ebef506ef90
 
