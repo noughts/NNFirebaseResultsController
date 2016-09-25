@@ -22,7 +22,7 @@ PODS:
   - GoogleUtilities (1.3.1):
     - GoogleSymbolUtilities (~> 1.0)
   - MBProgressHUD (1.0.0)
-  - NNFirebaseResultsController (0.2.14):
+  - NNFirebaseResultsController (0.2.17):
     - Firebase/Analytics
     - Firebase/Database
 
@@ -44,8 +44,8 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
   GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  NNFirebaseResultsController: e5a5329a731ca7df1a19fb650f6903b501ccf1e2
+  NNFirebaseResultsController: b22491853965aa84d4134506271b84ef6eaa4752
 
 PODFILE CHECKSUM: 7e18438e7433bee87b49db57c0ea3fad9e05696d
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.0.1
