@@ -10,7 +10,6 @@ target 'NNFirebaseResultsController_Example' do
   pod 'NNFirebaseResultsController', :path => '../'
 
   # Pods for NNFirebaseResultsController_Example
-  pod "NBULog"
   pod "MBProgressHUD"
   pod "Firebase"
 end
