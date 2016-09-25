@@ -12,7 +12,7 @@
 
 
 +(void)hoge{
-	NSLog(@">>>>>>>>> %@", [FIRApp defaultApp]);
+	NSLog(@">>>>>>>>> %@", [FIRApp class]);
 }
 
 @end
