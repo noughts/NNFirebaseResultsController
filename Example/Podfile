@@ -12,4 +12,5 @@ target 'NNFirebaseResultsController_Example' do
   # Pods for NNFirebaseResultsController_Example
   pod "NBULog"
   pod "MBProgressHUD"
+  pod "Firebase"
 end
